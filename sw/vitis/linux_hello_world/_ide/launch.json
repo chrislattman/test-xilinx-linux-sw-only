@@ -1,0 +1,32 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "tcf-debug",
+      "request": "launch",
+      "name": "linux_hello_world_hw_1",
+      "debugType": "emb-linux",
+      "attachToRunningProcessOptions": {
+        "linuxTargetMode": "standalone",
+        "attachToPid": []
+      },
+      "target": {
+        "targetConnectionId": "Linux Agent",
+        "peersIniPath": "../../_ide/.peers.ini",
+        "file": "/home/chris/test-xilinx-linux-sw-only/sw/vitis/linux_hello_world/build/linux_hello_world.elf",
+        "remoteFilePath": "/run/media/mmcblk0p1/linux_hello_world.elf"
+      },
+      "env": {},
+      "pathMap": [],
+      "replaceNativeEnv": false,
+      "arguments": "",
+      "workingDirectory": "/run/media/mmcblk0p1",
+      "stopAtMain": true,
+      "skipRevisionCheck": false,
+      "partialBitstream": false,
+      "stopAtProgramEntry": false,
+      "autoAttachProcessChildren": false,
+      "internalConsoleOptions": "openOnSessionStart"
+    }
+  ]
+}

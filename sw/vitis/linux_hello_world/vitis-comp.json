@@ -1,0 +1,20 @@
+{
+  "name": "linux_hello_world",
+  "type": "HOST",
+  "platform": "ultra96v2_platform",
+  "domain": "linux_psu_cortexa53",
+  "cpuInstance": "cortex-a53",
+  "cpuType": "cortex-a53",
+  "os": "linux",
+  "sysroot": "/home/chris/test-xilinx-linux-sw-only/sw/embeddedlinux/images/linux/sdk/sysroots/cortexa72-cortexa53-amd-linux",
+  "configuration": {
+    "componentType": "HOST",
+    "hostToolchainConfigurations": []
+  },
+  "domainRealName": "linux_psu_cortexa53",
+  "useSysrootToolchain": false,
+  "sysrootToolchain": "",
+  "applicationFlow": "EMBEDDED",
+  "template": "linux_hello_world",
+  "templateFlow": "VITIS"
+}

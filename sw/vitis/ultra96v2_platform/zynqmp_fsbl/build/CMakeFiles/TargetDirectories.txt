@@ -1,0 +1,4 @@
+/home/chris/test-xilinx-linux-sw-only/sw/vitis/ultra96v2_platform/zynqmp_fsbl/build/CMakeFiles/fsbl.elf.dir
+/home/chris/test-xilinx-linux-sw-only/sw/vitis/ultra96v2_platform/zynqmp_fsbl/build/CMakeFiles/print_build_info.dir
+/home/chris/test-xilinx-linux-sw-only/sw/vitis/ultra96v2_platform/zynqmp_fsbl/build/CMakeFiles/edit_cache.dir
+/home/chris/test-xilinx-linux-sw-only/sw/vitis/ultra96v2_platform/zynqmp_fsbl/build/CMakeFiles/rebuild_cache.dir

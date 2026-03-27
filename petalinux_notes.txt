@@ -1,0 +1,42 @@
+Have .xsa file from Vivado first
+
+source ~/opt/Xilinx/2025.2/Vitis/settings64.sh
+sdtgen -xsa fpga/ultra96v2_wrapper.xsa -dir sdt_outdir
+
+echo 0 | sudo tee /proc/sys/kernel/apparmor_restrict_unprivileged_userns
+
+New directory, then source ~/opt/Xilinx/2025.2/PetaLinux/settings.sh
+petalinux-create project --template zynqMP --name <desired project name>
+
+cd <desired project name>
+petalinux-config --get-hw-description ../../sdt_outdir
+- This launches a TUI where you can configure Linux (fsbl, u-boot, kernel, rootfs)
+- Change rootfs type from INITRD to EXT4
+- Don't copy final images to tftpboot
+- Change all stdin/stdout to UART1
+- Manually edit device tree config to make SD card work (petalinux-config -c device-tree, then edit project-spec/meta-user/recipes-bsp/device-tree/files/system-user.dtsi)
+
+petalinux-build
+- This is the initial build, it will take a while
+- Install libtinfo5: https://www.centennialsoftwaresolutions.com/help/fix-missing-libtinfo-so-5/
+
+If you want your application to be part of the rootfs:
+petalinux-create apps --template c --name linux_hello_world --enable
+- Edit file in <project-folder>/project-spec/meta-user/recipes-apps/linux_hello_world/files/linux_hello_world.c
+petalinux-build
+- Only builds your app this time around
+
+petalinux-package boot [--force]
+petalinux-package wic
+
+Use balenaEtcher to flash your microSD card with the .wic file
+Insert into slot and boot from SD
+Log in through screen command with username "petalinux" and create a password
+
+If you want to deploy your application iteratively with scp:
+petalinux-build --sdk
+petalinux-package sysroot
+- These are to help with Vitis projects, also will take a long time
+Generate platform component and application component in Vitis
+Deploy linux_hello_world.elf with scp (requires an Ethernet connection between PC and board)
+
