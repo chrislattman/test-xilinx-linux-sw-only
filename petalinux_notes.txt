@@ -5,7 +5,7 @@ sdtgen -xsa fpga/ultra96v2_wrapper.xsa -dir sdt_outdir
 
 echo 0 | sudo tee /proc/sys/kernel/apparmor_restrict_unprivileged_userns
 
-New directory, then source ~/opt/Xilinx/2025.2/PetaLinux/settings.sh
+Open a new shell, then source ~/opt/Xilinx/2025.2/PetaLinux/settings.sh
 petalinux-create project --template zynqMP --name <desired project name>
 
 cd <desired project name>
