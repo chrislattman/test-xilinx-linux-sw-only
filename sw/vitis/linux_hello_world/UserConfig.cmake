@@ -123,6 +123,7 @@ set(USER_LINK_OMIT_ALL_SYMBOL_INFO )
 # Add any libraries to be linked below, they will be added as extra libraries.
 # User need to update USER_LINK_DIRECTORIES below with these library paths.
 set(USER_LINK_LIBRARIES
+"systemd"
 )
 
 # Add any directories to look for the libraries to be linked.

@@ -1,0 +1,15 @@
+[Unit]
+Description=My Sensor Service
+
+[Service]
+Type=notify
+ExecStart=/usr/bin/linux_hello_world
+
+# Service must ping systemd every 4 seconds
+WatchdogSec=4
+
+Restart=on-failure
+RestartSec=2
+
+[Install]
+WantedBy=multi-user.target
