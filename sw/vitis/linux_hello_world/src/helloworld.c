@@ -23,6 +23,13 @@ int main()
         printf("Hello\r\n");
         sleep(1);
         printf("World!\r\n");
+        /* If this were a Windows SCM service or a launchd service (macOS), you
+         * could add a watchdog by creating a new thread that polls a global
+         * atomic variable watchdog. If the main thread doesn't feed it from
+         * its superloop on time, then the watchdog thread terminates/aborts the
+         * entire process, which prompts SCM/launchd to restart the process after
+         * a specified number of seconds.
+         */
         sd_notify(0, "WATCHDOG=1");
     }
 }
